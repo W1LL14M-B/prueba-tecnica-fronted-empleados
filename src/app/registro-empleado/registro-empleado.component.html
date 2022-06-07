@@ -1,0 +1,131 @@
+<div id="loginbox" style="margin-top:50px;" class="mainbox" class="container">
+  <div class="panel panel-info" >
+    <div class="panel-heading">
+        <div class="panel-title"><H1>Listado empleados </H1></div>
+    </div>  
+  <div class="row">
+    <div class="col-md-12">
+        <table class="table table-hover mt-5">
+          <thead>
+             <tr>
+               <th>id</th>
+               <th>identificacion</th>
+               <th>tipo_identificacion</th>
+               <th>pmr_nombre</th>
+               <th>sgd_nombre</th>
+               <th>pmr_apellido</th>
+               <th>sgd_apellido</th>
+             </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let empleado of empleados">
+              <td>{{empleado.id}}</td>
+              <td>{{empleado.identificacion}}</td>
+              <td>{{empleado.tipo_identificacion}}</td>
+              <td>{{empleado.pmr_nombre}}</td>
+              <td>{{empleado.sgd_nombre}}</td>
+              <td>{{empleado.pmr_apellido}}</td>
+              <td>{{empleado.sgd_apellido}}</td>
+              <td>
+                <button class="btn btn-danger btn-sm" (click)="delete(empleado.id)">
+                  Eliminar
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <form (ngSubmit)="save()" [formGroup]="requestForm">
+        <div class="panel-title"><H1>Registro empleados</H1></div>
+        <label>
+          <p class="label-txt">Identificacion</p>
+          <input type="number" class="input" formControlName="identificacion">
+          <div class="line-box">
+            <div class="line"></div>
+          </div>
+        </label>
+        <label>
+          <p class="label-txt">Tipo de Identificacion</p>
+          <input type="text" class="input" formControlName="tipo_identificacion">
+          <div class="line-box">
+            <div class="line"></div>
+          </div>
+        </label>
+        <label>
+          <p class="label-txt">Primer nombre</p>
+          <input type="text" class="input" formControlName="pmr_nombre">
+          <div class="line-box">
+            <div class="line"></div>
+          </div>
+        </label>
+        <label>
+          <p class="label-txt">Segundo nombre</p>
+          <input type="text" class="input" formControlName="sgd_nombre">
+          <div class="line-box">
+            <div class="line"></div>
+          </div>
+        </label>
+        <label>
+          <p class="label-txt">Primer apellido</p>
+          <input type="text" class="input" formControlName="pmr_apellido">
+          <div class="line-box">
+            <div class="line"></div>
+          </div>
+        </label>
+        <label>
+          <p class="label-txt">Segundo apellido</p>
+          <input type="text" class="input" formControlName="sgd_apellido">
+          <div class="line-box">
+            <div class="line"></div>
+          </div>
+        </label>
+        <label>
+          <p class="label-txt">Area</p>
+          <input type="text" class="input" formControlName="area">
+          <div class="line-box">
+            <div class="line"></div>
+          </div>
+        </label>
+        <label>
+          <p class="label-txt">Email</p>
+          <input type="email" class="input" placeholder="usuario@cidenet.com" formControlName="email">
+          <div class="line-box">
+            <div class="line"></div>
+          </div>
+        </label>
+        <label>
+          <p class="label-txt">Pais empleo</p>
+          <input type="text" class="input" formControlName="pais_empleo">
+          <div class="line-box">
+            <div class="line"></div>
+          </div>
+        </label>
+        <label>
+          <p class="label-txt">Fecha Ingreso</p>
+          <input type="datetime-local" class="input" formControlName="fechaIngreso">
+          <div class="line-box">
+            <div class="line"></div>
+          </div>
+        </label>
+        <label>
+          <p class="label-txt">Fecha retiro</p>
+          <input type="datetime-local" class="input" formControlName="fechaRetiro">
+          <div class="line-box">
+            <div class="line"></div>
+          </div>
+        </label>
+        <label>
+          <p class="label-txt">Estado</p>
+          <input type="text" class="input" formControlName="estado">
+          <div class="line-box">
+            <div class="line"></div>
+          </div>
+        </label>
+        <button type="submit">Registrar</button>
+      </form>
+    </div>
+    </div>
+  </div>
